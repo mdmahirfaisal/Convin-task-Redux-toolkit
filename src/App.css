@@ -1,36 +1,40 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
 * {
 	box-sizing: border-box;
 }
+
 .App {
-   text-align: center;
+	text-align: center;
 }
 
 @media only screen and (min-width: 1201px) {
-   .container {
-     max-width: 1200px;
-     margin: 0 auto;
-   }
- }
-@media only screen and (max-width: 1200px) {
-   .container {
-     width:90% ;
-     margin: 0 auto;
-   }
- }
-@media only screen and (max-width: 480px) {
-   .container {
-     width: 100%;
-   }
- }
+	.container {
+		max-width: 1200px;
+		margin: 0 auto;
+	}
+}
 
-  /* User card  */
-  @import url("https://fonts.googleapis.com/css?family=Montserrat");
+@media only screen and (max-width: 1200px) {
+	.container {
+		width: 90%;
+		margin: 0 auto;
+	}
+}
+
+@media only screen and (max-width: 480px) {
+	.container {
+		width: 100%;
+	}
+}
+
+/* User card  */
+@import url("https://fonts.googleapis.com/css?family=Montserrat");
 
 .card-container {
-   font-family: Montserrat, sans-serif;
+	font-family: Montserrat, sans-serif;
 	background-color: #231e39;
 	border-radius: 5px;
 	box-shadow: 0px 10px 20px -10px rgba(0, 0, 0, 0.75);

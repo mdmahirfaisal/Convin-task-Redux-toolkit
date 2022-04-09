@@ -4,17 +4,16 @@ import { useDispatch } from 'react-redux';
 import { getUser } from '../../redux/features/userSlice';
 import SingleUser from '../SingleUser/SingleUser';
 import NavigationBar from '../NavigationBar/NavigationBar';
-import { Pagination, Paper } from '@mui/material';
+import { CircularProgress, Pagination, Paper } from '@mui/material';
 
 const Home = () => {
     const dispatch = useDispatch();
-
+    const [isLoading, setIsLoading] = useState(false);
     const [allUsers, setAllUsers] = useState([]);
-    // const [pagination, setPagination] = useState(1);
     const [page, setPage] = React.useState(1);
 
-
     useEffect(() => {
+        setIsLoading(true)
         const URL = `https://reqres.in/api/users?page=${page}`;
         axios.get(URL)
             .then(res => {
@@ -23,6 +22,7 @@ const Home = () => {
             .catch(err => {
                 console.log(err);
             })
+            .finally(() => setIsLoading(false));
     }, [page])
 
 
@@ -35,13 +35,14 @@ const Home = () => {
         <>
             <NavigationBar />
             <div className='container'>
-                <h2 className='text-3xl lg:text-5xl font-semibold py-5'>Welcome To Convin World</h2>
+                <h2 className='text-3xl lg:text-5xl font-semibold py-5 bg-gray-300'>Welcome To Convin World</h2>
 
                 <SingleUser />
 
                 <Paper>
                     <div className='mx-auto my-5'>
-                        {
+                        {isLoading ? <h2 className='text-4xl'><CircularProgress /> </h2>
+                            :
                             allUsers.map((user, index) => <button
                                 key={index}
                                 onClick={() => dispatch(getUser(user.id))}

@@ -40,14 +40,16 @@ const NavigationBar = () => {
         >
             <Container maxWidth="xl">
                 <Toolbar disableGutters>
-                    <Typography
-                        variant="h6"
-                        noWrap
-                        component="div"
-                        sx={{ mr: 2, display: { xs: 'none', md: 'flex' } }}
-                    >
-                        CONVIN
-                    </Typography>
+                    <Link to="/">
+                        <Typography
+                            variant="h6"
+                            noWrap
+                            component="div"
+                            sx={{ mr: 2, display: { xs: 'none', md: 'flex' } }}
+                        >
+                            CONVIN
+                        </Typography>
+                    </Link>
 
                     <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
                         <IconButton
